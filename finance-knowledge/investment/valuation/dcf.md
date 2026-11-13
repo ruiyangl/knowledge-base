@@ -21,6 +21,7 @@ Total investment = Incremental fixed-capital investment + Incremental working-ca
 FCF = NOPAT - Total Investment
 
 * Operating income ≈ operating profit ≈ EBIT
+* Sales ≈ revenue ≈ the Top Line
 
 </details>
 

@@ -37,11 +37,11 @@ from urllib.parse import quote, unquote
 DEFAULT_SOURCE = "~/openclaw-data/main/knowledgeBase"
 SITE = os.path.dirname(os.path.abspath(__file__))
 
-# Never published. Each entry is a path inside the source, written without
-# Notion's id; it matches the page and the folder of the same name.
+# Never published. Each entry is a path inside the source, without the .md;
+# it matches the page and the folder of the same name.
 EXCLUDE = [
-    "financeKnowledge/Investment/Trade log",
-    "financeKnowledge/Investment/Compliances",
+    "financeKnowledge/investment/trade-log",
+    "financeKnowledge/investment/compliances",
 ]
 
 # Files of this repository that a rebuild leaves alone.
@@ -80,12 +80,19 @@ def slug(name):
     return stem + ext.lower()
 
 
+def web_path(rel):
+    """'Investment/Trade log 202f...a83.md' -> 'investment/trade-log'."""
+    parts = rel.split("/")
+    parts[-1] = os.path.splitext(parts[-1])[0]
+    return "/".join(slug(p) for p in parts)
+
+
 def is_excluded(rel):
-    """True if a source path is an excluded page, or inside an excluded folder."""
-    parts = [strip_id(os.path.splitext(p)[0]) if i == len(rel.split("/")) - 1 else strip_id(p)
-             for i, p in enumerate(rel.split("/"))]
-    clean = "/".join(parts)
-    return any(clean == e or clean.startswith(e + "/") for e in EXCLUDE)
+    """True if a source path is an excluded page, or inside an excluded folder.
+    Names are compared in their web form, so 'Trade log 202f...md' and
+    'trade-log.md' are both excluded."""
+    clean = web_path(rel)
+    return any(clean == e or clean.startswith(e + "/") for e in map(web_path, EXCLUDE))
 
 
 def is_markdown(path):
