@@ -47,12 +47,12 @@ $$\text{EPS Growth Rate} = \frac{9.637 - 8.04}{8.04} = 0.1985 = \boxed{19.85\%}$
 
 If you're comparing EPS over **multiple years**, use:
 
-$$text{CAGR} = \left( \frac{\text{EPS}_{\text{end}}}{\text{EPS}_{\text{start}}} \right)^{\frac{1}{n}} - 1$$
+$$\text{CAGR} = \left( \frac{\text{EPS}_{\text{end}}}{\text{EPS}_{\text{start}}} \right)^{\frac{1}{n}} - 1$$
 
 Where:
 
 - `n` = number of years
-- $$EPSstart_{\text{start}}start$$ and $$EPSend_{\text{end}}end$$ are the beginning and ending EPS values
+- $$\text{EPS}_{\text{start}}$$ and $$\text{EPS}_{\text{end}}$$ are the beginning and ending EPS values
 
 ### ✅ Example:
 
