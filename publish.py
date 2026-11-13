@@ -10,7 +10,7 @@ by hand. Each run rebuilds the site from the source:
     are dropped and names become lower-case with dashes, so
     "Investment/Road to 1m 34ef...52.md" becomes "investment/road-to-1m.md";
   - every link between pages is rewritten to the new names;
-  - the home page (knowledgeBase.md) becomes index.md;
+  - the home page (knowledge-base.md) becomes index.md;
   - inline formulas written $...$ become $$...$$, the form the site renders
     (MathJax, loaded in _includes/head-custom.html, draws them);
   - collapsible <details> blocks get markdown="1", so the tables and lists
@@ -40,14 +40,14 @@ SITE = os.path.dirname(os.path.abspath(__file__))
 # Never published. Each entry is a path inside the source, without the .md;
 # it matches the page and the folder of the same name.
 EXCLUDE = [
-    "financeKnowledge/investment/trade-log",
-    "financeKnowledge/investment/compliances",
+    "finance-knowledge/investment/trade-log",
+    "finance-knowledge/investment/compliances",
 ]
 
 # Files of this repository that a rebuild leaves alone.
 KEEP = {".git", ".gitignore", "_config.yml", "_includes", "README.md", "publish.py"}
 
-HOME_PAGE = "knowledgeBase.md"
+HOME_PAGE = "knowledge-base.md"
 NOTION_ID = re.compile(r"\s+[0-9a-f]{32}$")
 LINK = re.compile(r"(!?)\[([^\]]*)\]\(([^)\s]+)\)")
 DETAILS = re.compile(r"<details(?![^>]*markdown=)([^>]*)>")
@@ -100,7 +100,7 @@ def is_markdown(path):
         return True
     if os.path.splitext(path)[1]:
         return False
-    with open(path, "rb") as handle:                  # e.g. 'financials': Markdown with no extension
+    with open(path, "rb") as handle:                  # a Markdown note saved with no extension
         return b"\0" not in handle.read(4096)
 
 
