@@ -1,0 +1,6 @@
+title: Knowledge Base
+description: Notes on investing, valuation and AI infrastructure
+theme: jekyll-theme-primer
+exclude:
+  - README.md
+  - publish.py
