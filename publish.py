@@ -14,7 +14,9 @@ by hand. Each run rebuilds the site from the source:
   - inline formulas written $...$ become $$...$$, the form the site renders
     (MathJax, loaded in _includes/head-custom.html, draws them);
   - collapsible <details> blocks get markdown="1", so the tables and lists
-    inside them are rendered instead of shown as plain text.
+    inside them are rendered instead of shown as plain text;
+  - a backslash at the end of a line becomes a line break, and tables get
+    the blank lines around them that the site needs to draw them.
 
 GitHub Pages then turns each .md file into a web page.
 
@@ -54,6 +56,13 @@ DETAILS = re.compile(r"<details(?![^>]*markdown=)([^>]*)>")
 # "$1,017 and $1,065" alone, the text must not start with a digit or space and
 # must contain one of \ _ ^ {.
 INLINE_MATH = re.compile(r"(?<![\w$\\])\$(?=[^\s\d$)])([^$\n]*?[\\_^{][^$\n]*?)(?<=\S)\$(?!\$)")
+# A line ending in a single backslash is a line break on github.com and in
+# Notion; the site's engine shows the backslash, so it becomes two spaces.
+LINE_BREAK = re.compile(r"(?<!\\)\\[ \t]*$")
+
+
+def is_table_row(line):
+    return line.lstrip().startswith("|")
 
 
 def strip_id(name):
@@ -116,14 +125,21 @@ def rewrite(text, rel, mapping, warnings):
     here = os.path.dirname(rel)
     new_here = os.path.dirname(mapping[rel])
     out = []
-    in_code = False
+    in_code = in_math = False
     for line in text.split("\n"):
         drop = False
         if line.lstrip().startswith("```"):
             in_code = not in_code
-        elif not in_code:
+        elif line.strip() == "$$":
+            in_math = not in_math
+        elif not in_code and not in_math:
             line = INLINE_MATH.sub(r"$$\1$$", line)
             line = DETAILS.sub(r'<details markdown="1"\1>', line)
+            line = LINE_BREAK.sub("  ", line)
+            # A table must be set off by blank lines, or it is shown as text.
+            is_table, was_table = is_table_row(line), out and is_table_row(out[-1])
+            if line.strip() and out and out[-1].strip() and is_table != was_table:
+                out.append("")
 
         def fix(match):
             nonlocal drop

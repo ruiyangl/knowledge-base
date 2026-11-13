@@ -13,11 +13,11 @@ Free Cash Flow (FCF) = Operating Cash Flow - Capital Expenditures
 <details markdown="1">
 <summary> How do we get to FCF</summary>
 
-Sales\
-Operating profit = Sales x Operating profit margin\
-Cash taxes = Operating profit x Cash tax rate\
-NOPAT = Operating profit - Cash tax\
-Total investment = Incremental fixed-capital investment + Incremental working-capital investment \
+Sales  
+Operating profit = Sales x Operating profit margin  
+Cash taxes = Operating profit x Cash tax rate  
+NOPAT = Operating profit - Cash tax  
+Total investment = Incremental fixed-capital investment + Incremental working-capital investment   
 FCF = NOPAT - Total Investment
 
 * Operating income ≈ operating profit ≈ EBIT

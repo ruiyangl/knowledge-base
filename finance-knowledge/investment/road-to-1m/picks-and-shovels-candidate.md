@@ -1,7 +1,5 @@
 # Picks and Shovels Candidate
 
-## 
-
 ### 1. **HBM / advanced memory: Micron, SK Hynix, Samsung**
 
 **MU**
@@ -14,11 +12,10 @@
 | **Advanced packaging** | **~15–20%** |
 | **HBM + packaging together** | **~60–70%** |
 | GPU logic die / compute silicon | Often less than people assume |
+
 - total HBM market cap CAGR (2025-2034) estimate 26.71
 
-Why the moat lasts ~3 years: HBM qualification is hard, customers qualify slowly, capacity ramps are constrained, and advanced pa
-
-ckaging is a bottleneck. This is not like commodity memory where supply can flood instantly.
+Why the moat lasts ~3 years: HBM qualification is hard, customers qualify slowly, capacity ramps are constrained, and advanced packaging is a bottleneck. This is not like commodity memory where supply can flood instantly.
 
 Why it may still be underpriced: despite the huge move, Micron trades at a much lower headline P/E than most AI infrastructure names — about **23× trailing earnings** versus Nvidia at ~51×, Broadcom at ~105×, Vertiv at ~81×, and Astera at ~97×.
 

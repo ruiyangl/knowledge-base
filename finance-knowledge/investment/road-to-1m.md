@@ -45,6 +45,4 @@ We can decompose the progress in the four years from GPT-2 to GPT-4 into three c
 
 *Some candidates*
 
-# 
-
 [Light](road-to-1m/light.md)
