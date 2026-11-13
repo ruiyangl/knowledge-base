@@ -12,7 +12,9 @@ by hand. Each run rebuilds the site from the source:
   - every link between pages is rewritten to the new names;
   - the home page (knowledgeBase.md) becomes index.md;
   - inline formulas written $...$ become $$...$$, the form the site renders
-    (MathJax, loaded in _includes/head-custom.html, draws them).
+    (MathJax, loaded in _includes/head-custom.html, draws them);
+  - collapsible <details> blocks get markdown="1", so the tables and lists
+    inside them are rendered instead of shown as plain text.
 
 GitHub Pages then turns each .md file into a web page.
 
@@ -46,6 +48,7 @@ KEEP = {".git", ".gitignore", "_config.yml", "_includes", "README.md", "publish.
 HOME_PAGE = "knowledgeBase.md"
 NOTION_ID = re.compile(r"\s+[0-9a-f]{32}$")
 LINK = re.compile(r"(!?)\[([^\]]*)\]\(([^)\s]+)\)")
+DETAILS = re.compile(r"<details(?![^>]*markdown=)([^>]*)>")
 # Inline TeX written $...$ (as Notion and github.com accept). The site's Markdown
 # engine only knows $$...$$, so these are converted. To leave prices such as
 # "$1,017 and $1,065" alone, the text must not start with a digit or space and
@@ -120,6 +123,7 @@ def rewrite(text, rel, mapping, warnings):
             in_code = not in_code
         elif not in_code:
             line = INLINE_MATH.sub(r"$$\1$$", line)
+            line = DETAILS.sub(r'<details markdown="1"\1>', line)
 
         def fix(match):
             nonlocal drop

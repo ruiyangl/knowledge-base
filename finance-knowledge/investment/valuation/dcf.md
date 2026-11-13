@@ -10,7 +10,7 @@ This page will demonstrate how to best calculate the DCF for a given stock
 
 Free Cash Flow (FCF) = Operating Cash Flow - Capital Expenditures
 
-<details>
+<details markdown="1">
 <summary> How do we get to FCF</summary>
 
 Sales\
@@ -51,7 +51,7 @@ Choose a Discount Rate (WACC)
 
 ~9.5%
 
-<details>
+<details markdown="1">
 <summary> WACC calculation </summary>
 
 given a company plans on raise capital in the proportion of 20 percent debt and 80 percent equity
@@ -62,14 +62,12 @@ given a company plans on raise capital in the proportion of 20 percent debt and 
 | Equity | 80 | 9.0 | 7.2 |
 | Cost of capital | | | 8.0|
 
-after-tax cost of debt-financed instruments = Yield-to-maturity on long-term debt × (1 − Tax rate)
-Cost of equity = Risk-free rate + Equity risk premium
-Equity risk premium = Beta × Market risk premium
-Market risk premium = Expected market rate of return −
-Risk-free rate
+- After-tax cost of debt-financed instruments = Yield-to-maturity on long-term debt × (1 − Tax rate)
+- Cost of equity = Risk-free rate + Equity risk premium
+- Equity risk premium = Beta × Market risk premium
+- Market risk premium = Expected market rate of return − Risk-free rate
 
-Cost of equity = Risk-free rate + Beta × (Expected market rate of
-return − Risk-free rate)
+Cost of equity = Risk-free rate + Beta × (Expected market rate of return − Risk-free rate)
 </details>
 
 ## step 5
@@ -94,7 +92,7 @@ Sum = 5.175
 
 Calculate terminal value (continuing value)
 
-<details>
+<details markdown="1">
 <summary> Continuing value estimate </summary>
 
 The key is to consider carefully what the company’s competitive position will be at the end of the explicit forecast period.
