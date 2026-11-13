@@ -39,7 +39,7 @@ $$
 - **2025E EPS** = 9.637
 - **2024E EPS** = 8.04
 
-$\text{EPS Growth Rate} = \frac{9.637 - 8.04}{8.04} = 0.1985 = \boxed{19.85\%}$
+$$\text{EPS Growth Rate} = \frac{9.637 - 8.04}{8.04} = 0.1985 = \boxed{19.85\%}$$
 
 ---
 
@@ -47,12 +47,12 @@ $\text{EPS Growth Rate} = \frac{9.637 - 8.04}{8.04} = 0.1985 = \boxed{19.85\%}$
 
 If you're comparing EPS over **multiple years**, use:
 
-$text{CAGR} = \left( \frac{\text{EPS}_{\text{end}}}{\text{EPS}_{\text{start}}} \right)^{\frac{1}{n}} - 1$
+$$text{CAGR} = \left( \frac{\text{EPS}_{\text{end}}}{\text{EPS}_{\text{start}}} \right)^{\frac{1}{n}} - 1$$
 
 Where:
 
 - `n` = number of years
-- $EPSstart_{\text{start}}start$ and $EPSend_{\text{end}}end$ are the beginning and ending EPS values
+- $$EPSstart_{\text{start}}start$$ and $$EPSend_{\text{end}}end$$ are the beginning and ending EPS values
 
 ### ✅ Example:
 
@@ -60,7 +60,7 @@ Using 2023 EPS = 5.80 and 2026E EPS = 10.159
 
 (3 years: 2023 → 2026)
 
-$\text{CAGR} = \left( \frac{10.159}{5.80} \right)^{1/3} - 1 \approx 0.209 = \boxed{20.9\%}$
+$$\text{CAGR} = \left( \frac{10.159}{5.80} \right)^{1/3} - 1 \approx 0.209 = \boxed{20.9\%}$$
 
 ### PEG using 1-year forward growth
 

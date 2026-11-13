@@ -10,7 +10,9 @@ by hand. Each run rebuilds the site from the source:
     are dropped and names become lower-case with dashes, so
     "Investment/Road to 1m 34ef...52.md" becomes "investment/road-to-1m.md";
   - every link between pages is rewritten to the new names;
-  - the home page (knowledgeBase.md) becomes index.md.
+  - the home page (knowledgeBase.md) becomes index.md;
+  - inline formulas written $...$ become $$...$$, the form the site renders
+    (MathJax, loaded in _includes/head-custom.html, draws them).
 
 GitHub Pages then turns each .md file into a web page.
 
@@ -39,11 +41,16 @@ EXCLUDE = [
 ]
 
 # Files of this repository that a rebuild leaves alone.
-KEEP = {".git", ".gitignore", "_config.yml", "README.md", "publish.py"}
+KEEP = {".git", ".gitignore", "_config.yml", "_includes", "README.md", "publish.py"}
 
 HOME_PAGE = "knowledgeBase.md"
 NOTION_ID = re.compile(r"\s+[0-9a-f]{32}$")
 LINK = re.compile(r"(!?)\[([^\]]*)\]\(([^)\s]+)\)")
+# Inline TeX written $...$ (as Notion and github.com accept). The site's Markdown
+# engine only knows $$...$$, so these are converted. To leave prices such as
+# "$1,017 and $1,065" alone, the text must not start with a digit or space and
+# must contain one of \ _ ^ {.
+INLINE_MATH = re.compile(r"(?<![\w$\\])\$(?=[^\s\d$)])([^$\n]*?[\\_^{][^$\n]*?)(?<=\S)\$(?!\$)")
 
 
 def strip_id(name):
@@ -106,8 +113,13 @@ def rewrite(text, rel, mapping, warnings):
     here = os.path.dirname(rel)
     new_here = os.path.dirname(mapping[rel])
     out = []
+    in_code = False
     for line in text.split("\n"):
         drop = False
+        if line.lstrip().startswith("```"):
+            in_code = not in_code
+        elif not in_code:
+            line = INLINE_MATH.sub(r"$$\1$$", line)
 
         def fix(match):
             nonlocal drop
