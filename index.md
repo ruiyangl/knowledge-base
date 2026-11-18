@@ -53,3 +53,7 @@ Home page for the knowledge base. Everything lives in one of the topic areas bel
 ## 📈 Trading System
 
 - [System](trading-system/system.md) — checklist framework for evaluating a stock: macro → sector → company → leadership → business model → timing.
+
+## Programming in the AI age
+
+- [Verification design](ai-programming/varification-design.md)
