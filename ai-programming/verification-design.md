@@ -1,7 +1,7 @@
 # Verification Design
 
 ## Resources
-https://addyo.substack.com/p/agentic-verification
+[Agentic Verification (Addy Osmani)](https://addyo.substack.com/p/agentic-verification)
 
 
 ## Osmani Notes
