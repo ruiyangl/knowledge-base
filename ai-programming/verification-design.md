@@ -1,4 +1,4 @@
-# Varification Design
+# Verification Design
 
 ## Resources
 https://addyo.substack.com/p/agentic-verification

@@ -56,4 +56,4 @@ Home page for the knowledge base. Everything lives in one of the topic areas bel
 
 ## Programming in the AI age
 
-- [Verification design](ai-programming/varification-design.md)
+- [Verification design](ai-programming/verification-design.md)
